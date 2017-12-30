@@ -22,6 +22,11 @@
 	<key>buildSystem</key>
 	<string>xcode</string>
 	<key>buildArgs</key>
-	<array/>
+	<array>
+		<string>-project</string>
+		<string>TiltedTabView.xcodeproj</string>
+		<string>-target</string>
+		<string>libTiltedTabView</string>
+	</array>
 </dict>
 </plist>
