@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>TiltedTabView</string>
+	<key>url</key>
+	<string>https://github.com/IMcD23/TiltedTabView.git</string>
+	<key>library</key>
+	<dict>
+		<key>url</key>
+		<string>https://github.com/IMcD23/TiltedTabView.git</string>
+		<key>branch</key>
+		<string>master</string>
+	</dict>
+	<key>dependencies</key>
+	<array/>
+	<key>libraryOutputs</key>
+	<array>
+		<string>libTiltedTabView</string>
+	</array>
+	<key>buildSystem</key>
+	<string>xcode</string>
+	<key>buildArgs</key>
+	<array/>
+</dict>
+</plist>
