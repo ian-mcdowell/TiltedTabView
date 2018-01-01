@@ -4,29 +4,23 @@
 <dict>
 	<key>name</key>
 	<string>TiltedTabView</string>
-	<key>url</key>
-	<string>https://github.com/IMcD23/TiltedTabView.git</string>
-	<key>library</key>
+	<key>build</key>
 	<dict>
-		<key>url</key>
-		<string>https://github.com/IMcD23/TiltedTabView.git</string>
-		<key>branch</key>
-		<string>master</string>
+		<key>buildSystem</key>
+		<string>xcode</string>
+		<key>buildArgs</key>
+		<array>
+			<string>-project</string>
+			<string>TiltedTabView.xcodeproj</string>
+			<string>-target</string>
+			<string>libTiltedTabView</string>
+		</array>
+		<key>outputs</key>
+		<array>
+			<string>libTiltedTabView.a</string>
+		</array>
 	</dict>
 	<key>dependencies</key>
 	<array/>
-	<key>libraryOutputs</key>
-	<array>
-		<string>libTiltedTabView</string>
-	</array>
-	<key>buildSystem</key>
-	<string>xcode</string>
-	<key>buildArgs</key>
-	<array>
-		<string>-project</string>
-		<string>TiltedTabView.xcodeproj</string>
-		<string>-target</string>
-		<string>libTiltedTabView</string>
-	</array>
 </dict>
 </plist>
