@@ -12,9 +12,9 @@ class TiltedTabTiltedCollectionViewLayout: TiltedTabCollectionViewLayout {
     private var layoutAttributes: [IndexPath: UICollectionViewLayoutAttributes] = [:]
     private var contentHeight: CGFloat = 0
     
-    private let standardAngleOfRotation: CGFloat = -70
+    private let standardAngleOfRotation: CGFloat = -50
     private let standardDepth: CGFloat = 200
-    private let distanceBetweenItems: CGFloat = 100
+    private let distanceBetweenItems: CGFloat = 110
     
     override func prepare() {
         super.prepare()
@@ -29,7 +29,6 @@ class TiltedTabTiltedCollectionViewLayout: TiltedTabCollectionViewLayout {
         let scaleFactor: CGFloat = 0.8
         let itemWidth = collectionView.bounds.width * scaleFactor
         let itemHeight = collectionView.bounds.height * scaleFactor
-        let scrollPosition = collectionView.contentOffset.y + collectionView.contentInset.top + collectionView.adjustedContentInset.top
         
         for section in 0..<collectionView.numberOfSections {
             let itemCount = collectionView.numberOfItems(inSection: section)
@@ -44,18 +43,7 @@ class TiltedTabTiltedCollectionViewLayout: TiltedTabCollectionViewLayout {
                     width: itemWidth,
                     height: itemHeight
                 )
-                var percentageFromTop: CGFloat = 0.25
-                let position = attributes.center.y
-                if position > scrollPosition {
-                    if position < (scrollPosition + collectionView.bounds.height) {
-                        percentageFromTop = position / (scrollPosition + collectionView.bounds.height)
-                    } else {
-                        percentageFromTop = 1
-                    }
-                }
-//                print("Item at \(item) is \(percentageFromTop)% from \(scrollPosition) to \(collectionView.bounds.height)")
-//                print("Rotation: \(standardAngleOfRotation * percentageFromTop)")
-                let rotation = CATransform3DMakeRotation(CGFloat.pi * standardAngleOfRotation * percentageFromTop / 180, 1, 0, 0)
+                let rotation = CATransform3DMakeRotation(CGFloat.pi * standardAngleOfRotation / 180, 1, 0, 0)
                 let downTranslation = CATransform3DMakeTranslation(0, 0, -standardDepth)
                 let upTranslation = CATransform3DMakeTranslation(0, 0, standardDepth)
                 var scale = CATransform3DIdentity
@@ -87,13 +75,17 @@ class TiltedTabTiltedCollectionViewLayout: TiltedTabCollectionViewLayout {
     
     override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         guard let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath) else { return nil }
-        attributes.transform3D = CATransform3DScale(CATransform3DTranslate(attributes.transform3D, 0, attributes.bounds.height, 0), 0.8, 0.8, 0.8)
+        if self.addingIndexPath == itemIndexPath {
+            attributes.transform3D = CATransform3DScale(CATransform3DTranslate(attributes.transform3D, 0, attributes.bounds.height, 0), 0.8, 0.8, 0.8)
+        }
         return attributes
     }
     
     override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         guard let attributes = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath) else { return nil }
-        attributes.transform3D = CATransform3DTranslate(attributes.transform3D, -attributes.bounds.width, 0, 0)
+        if self.removingIndexPath == itemIndexPath {
+            attributes.transform3D = CATransform3DTranslate(attributes.transform3D, -attributes.bounds.width, 0, 0)
+        }
         return attributes
     }
     
@@ -102,8 +94,4 @@ class TiltedTabTiltedCollectionViewLayout: TiltedTabCollectionViewLayout {
         return attributes
     }
     
-    // MARK: TiltedTabCollectionViewLayout
-    override func collectionViewDidScroll(_ collectionView: UICollectionView) {
-        self.invalidateLayout()
-    }
 }

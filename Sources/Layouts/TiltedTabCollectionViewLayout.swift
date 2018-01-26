@@ -12,5 +12,15 @@ class TiltedTabCollectionViewLayout: UICollectionViewLayout {
     weak var delegate: UICollectionViewDelegate?
     weak var dataSource: UICollectionViewDataSource?
     
-    func collectionViewDidScroll(_ collectionView: UICollectionView) {}
+    /// Set by the view controller when user adds a tab.
+    /// When a cell appears, if its index path was equal to this, the animation will differ.
+    var addingIndexPath: IndexPath?
+    
+    /// Set by the view controller when user removes a tab.
+    /// When a cell disappears, if its index path was equal to this, the animation will differ.
+    var removingIndexPath: IndexPath?
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
 }

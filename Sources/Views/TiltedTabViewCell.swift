@@ -28,10 +28,12 @@ class TiltedTabViewCell: UICollectionViewCell {
     
     private let headerView: TiltedTabViewCell.HeaderView
     private let snapshotContainer: UIImageView
+    let gradientLayer: CAGradientLayer
     
     override init(frame: CGRect) {
         headerView = TiltedTabViewCell.HeaderView()
         snapshotContainer = UIImageView()
+        gradientLayer = CAGradientLayer()
         super.init(frame: frame)
         
         self.layer.shouldRasterize = true
@@ -49,6 +51,13 @@ class TiltedTabViewCell: UICollectionViewCell {
         snapshotContainer.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(headerView)
         contentView.addSubview(snapshotContainer)
+        
+        headerView.backgroundColor = .white
+        
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.init(white: 0, alpha: 0.4).cgColor, UIColor.init(white: 0, alpha: 0.6).cgColor]
+        gradientLayer.locations = [0, 0.4, 1]
+        self.snapshotContainer.layer.addSublayer(gradientLayer)
+        self.contentView.backgroundColor = .black
         
         headerView.closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
         
@@ -87,6 +96,11 @@ class TiltedTabViewCell: UICollectionViewCell {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.gradientLayer.frame = self.snapshotContainer.bounds
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -108,6 +122,7 @@ class TiltedTabViewCell: UICollectionViewCell {
             super.init(frame: .zero)
             
             closeButton.setImage(HeaderView.closeImage, for: .normal)
+            closeButton.tintColor = .black
             
             titleLabel.text = ""
             titleLabel.textAlignment = .center
@@ -136,19 +151,19 @@ class TiltedTabViewCell: UICollectionViewCell {
         required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
         
         private static var closeImage: UIImage = {
-            return UIGraphicsImageRenderer(size: CGSize(width: 24, height: 24)).image(actions: { context in
+            return UIGraphicsImageRenderer(size: CGSize(width: 12, height: 12)).image(actions: { context in
                 let downwards = UIBezierPath()
-                downwards.move(to: CGPoint(x: 2, y: 2))
-                downwards.addLine(to: CGPoint(x: 22, y: 22))
+                downwards.move(to: CGPoint(x: 1, y: 1))
+                downwards.addLine(to: CGPoint(x: 11, y: 11))
                 UIColor.black.setStroke()
-                downwards.lineWidth = 5
+                downwards.lineWidth = 2
                 downwards.stroke()
                 
                 let upwards = UIBezierPath()
-                upwards.move(to: CGPoint(x: 2, y: 22))
-                upwards.addLine(to: CGPoint(x: 22, y: 2))
+                upwards.move(to: CGPoint(x: 1, y: 11))
+                upwards.addLine(to: CGPoint(x: 11, y: 1))
                 UIColor.black.setStroke()
-                upwards.lineWidth = 5
+                upwards.lineWidth = 2
                 upwards.stroke()
                 
                 context.cgContext.addPath(downwards.cgPath)

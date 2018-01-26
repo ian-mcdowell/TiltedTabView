@@ -69,8 +69,11 @@ open class TiltedTabViewController: UICollectionViewController {
     public func addTab(atIndex index: Int) {
         dataSource?.tabAdded(atIndex: index)
         let indexPath = IndexPath(item: index, section: 0)
+        let layout = self.collectionView?.collectionViewLayout as? TiltedTabCollectionViewLayout
+        layout?.addingIndexPath = indexPath
         self.collectionView?.insertItems(at: [indexPath])
         self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        layout?.addingIndexPath = nil
     }
     
     /// Remove the tab at the given index. Be sure to also remove the model for this tab from the data source's model.
@@ -78,7 +81,10 @@ open class TiltedTabViewController: UICollectionViewController {
     public func removeTab(atIndex index: Int) {
         dataSource?.tabRemoved(atIndex: index)
         let indexPath = IndexPath(item: index, section: 0)
+        let layout = self.collectionView?.collectionViewLayout as? TiltedTabCollectionViewLayout
+        layout?.removingIndexPath = indexPath
         self.collectionView?.deleteItems(at: [indexPath])
+        layout?.removingIndexPath = nil
     }
     
     // MARK: UIViewController
@@ -130,6 +136,9 @@ extension TiltedTabViewController {
         cell.title = dataSource?.titleForTab(atIndex: indexPath.item)
         cell.snapshot = dataSource?.snapshotForTab(atIndex: indexPath.item)
         
+        // Only show gradient if in tilted tab layout
+        cell.gradientLayer.isHidden = !(self.collectionView?.collectionViewLayout is TiltedTabTiltedCollectionViewLayout)
+        
         return cell
     }
     
@@ -142,17 +151,6 @@ extension TiltedTabViewController {
         
         delegate?.tabSelected(atIndex: indexPath.item)
     }
-}
-
-extension TiltedTabViewController {
-    
-    open override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let collectionView = scrollView as? UICollectionView, let layout = collectionViewLayout as? TiltedTabTiltedCollectionViewLayout {
-            layout.collectionViewDidScroll(collectionView)
-        }
-    }
-    
-
 }
 
 extension TiltedTabViewController: TiltedTabViewCellDelegate {

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C13AC28201AF74B002F36B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C13AC27201AF74B002F36B2 /* ViewController.swift */; };
+		3C13AC2A201AF74B002F36B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C13AC29201AF74B002F36B2 /* AppDelegate.swift */; };
+		3C13AC2F201AF74B002F36B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C13AC2E201AF74B002F36B2 /* Assets.xcassets */; };
+		3C13AC32201AF74B002F36B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C13AC30201AF74B002F36B2 /* LaunchScreen.storyboard */; };
+		3C13AC3A201AF7C9002F36B2 /* TiltedTabView.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB476881FF775C400C6B265 /* TiltedTabView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3CB476AC1FF7769900C6B265 /* TiltedTabCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB476A61FF7769900C6B265 /* TiltedTabCollectionViewLayout.swift */; };
 		3CB476AD1FF7769900C6B265 /* TiltedTabTiltedCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB476A71FF7769900C6B265 /* TiltedTabTiltedCollectionViewLayout.swift */; };
 		3CB476AE1FF7769900C6B265 /* TiltedTabGridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB476A81FF7769900C6B265 /* TiltedTabGridCollectionViewLayout.swift */; };
@@ -20,7 +25,28 @@
 		3CB476BD1FF77B7700C6B265 /* TiltedTabViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB476AB1FF7769900C6B265 /* TiltedTabViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3C13AC37201AF78D002F36B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CB4767F1FF775C400C6B265 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CB476871FF775C400C6B265;
+			remoteInfo = TiltedTabView;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		3C13AC39201AF7BF002F36B2 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3C13AC3A201AF7C9002F36B2 /* TiltedTabView.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3CB476951FF7761400C6B265 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +59,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C13AC25201AF74B002F36B2 /* TiltedTabView Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TiltedTabView Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C13AC27201AF74B002F36B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3C13AC29201AF74B002F36B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3C13AC2E201AF74B002F36B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C13AC31201AF74B002F36B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3C13AC33201AF74B002F36B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CB476881FF775C400C6B265 /* TiltedTabView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TiltedTabView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB4768C1FF775C400C6B265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CB476971FF7761400C6B265 /* libTiltedTabView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiltedTabView.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +77,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3C13AC22201AF74B002F36B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3CB476841FF775C400C6B265 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,11 +101,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C13AC26201AF74B002F36B2 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				3C13AC27201AF74B002F36B2 /* ViewController.swift */,
+				3C13AC29201AF74B002F36B2 /* AppDelegate.swift */,
+				3C13AC2E201AF74B002F36B2 /* Assets.xcassets */,
+				3C13AC30201AF74B002F36B2 /* LaunchScreen.storyboard */,
+				3C13AC33201AF74B002F36B2 /* Info.plist */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
 		3CB4767E1FF775C400C6B265 = {
 			isa = PBXGroup;
 			children = (
 				3CB476A41FF7767400C6B265 /* Sources */,
 				3CB4768A1FF775C400C6B265 /* Framework */,
+				3C13AC26201AF74B002F36B2 /* Sample */,
 				3CB476891FF775C400C6B265 /* Products */,
 				3CB476A21FF7765D00C6B265 /* Frameworks */,
 			);
@@ -77,6 +129,7 @@
 			children = (
 				3CB476881FF775C400C6B265 /* TiltedTabView.framework */,
 				3CB476971FF7761400C6B265 /* libTiltedTabView.a */,
+				3C13AC25201AF74B002F36B2 /* TiltedTabView Sample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +192,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3C13AC24201AF74B002F36B2 /* TiltedTabView Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C13AC36201AF74B002F36B2 /* Build configuration list for PBXNativeTarget "TiltedTabView Sample" */;
+			buildPhases = (
+				3C13AC21201AF74B002F36B2 /* Sources */,
+				3C13AC22201AF74B002F36B2 /* Frameworks */,
+				3C13AC23201AF74B002F36B2 /* Resources */,
+				3C13AC39201AF7BF002F36B2 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C13AC38201AF78D002F36B2 /* PBXTargetDependency */,
+			);
+			name = "TiltedTabView Sample";
+			productName = "TiltedTabView Sample";
+			productReference = 3C13AC25201AF74B002F36B2 /* TiltedTabView Sample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		3CB476871FF775C400C6B265 /* TiltedTabView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CB476901FF775C400C6B265 /* Build configuration list for PBXNativeTarget "TiltedTabView" */;
@@ -179,9 +251,13 @@
 		3CB4767F1FF775C400C6B265 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Ian McDowell";
 				TargetAttributes = {
+					3C13AC24201AF74B002F36B2 = {
+						CreatedOnToolsVersion = 9.2;
+					};
 					3CB476871FF775C400C6B265 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -198,6 +274,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 3CB4767E1FF775C400C6B265;
 			productRefGroup = 3CB476891FF775C400C6B265 /* Products */;
@@ -206,11 +283,33 @@
 			targets = (
 				3CB476871FF775C400C6B265 /* TiltedTabView */,
 				3CB476961FF7761400C6B265 /* libTiltedTabView */,
+				3C13AC24201AF74B002F36B2 /* TiltedTabView Sample */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		3C13AC23201AF74B002F36B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C13AC32201AF74B002F36B2 /* LaunchScreen.storyboard in Resources */,
+				3C13AC2F201AF74B002F36B2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		3C13AC21201AF74B002F36B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C13AC2A201AF74B002F36B2 /* AppDelegate.swift in Sources */,
+				3C13AC28201AF74B002F36B2 /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3CB476831FF775C400C6B265 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,7 +336,50 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3C13AC38201AF78D002F36B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CB476871FF775C400C6B265 /* TiltedTabView */;
+			targetProxy = 3C13AC37201AF78D002F36B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3C13AC30201AF74B002F36B2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C13AC31201AF74B002F36B2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		3C13AC34201AF74B002F36B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/Sample/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.ianmcdowell.TiltedTabView-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		3C13AC35201AF74B002F36B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/Sample/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.ianmcdowell.TiltedTabView-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		3CB4768E1FF775C400C6B265 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -287,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -343,7 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -358,6 +500,7 @@
 		3CB476911FF775C400C6B265 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -375,6 +518,7 @@
 		3CB476921FF775C400C6B265 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -392,7 +536,7 @@
 		3CB4769E1FF7761400C6B265 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TiltedTabView;
@@ -404,7 +548,7 @@
 		3CB4769F1FF7761400C6B265 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TiltedTabView;
@@ -415,6 +559,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3C13AC36201AF74B002F36B2 /* Build configuration list for PBXNativeTarget "TiltedTabView Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C13AC34201AF74B002F36B2 /* Debug */,
+				3C13AC35201AF74B002F36B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3CB476821FF775C400C6B265 /* Build configuration list for PBXProject "TiltedTabView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
