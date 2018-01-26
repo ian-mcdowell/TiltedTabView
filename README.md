@@ -2,8 +2,8 @@
 
 This library aims to replicate the tab switcher in Safari on iOS. It handles both compact width (tilted) and regular width (grid) layouts.
 
-![Screenshot](Resources/Screenshot.png)
-![Screenshot](Resources/Screenshot_iPad.png)
+<img src="Resources/Screenshot.png" width="300">
+<img src="Resources/Screenshot_iPad.png" width="600">
 
 ## Installation
 
