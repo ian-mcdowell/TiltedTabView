@@ -11,9 +11,10 @@ class TiltedTabTiltedCollectionViewLayout: TiltedTabCollectionViewLayout {
 
     private var layoutAttributes: [IndexPath: UICollectionViewLayoutAttributes] = [:]
     private var contentHeight: CGFloat = 0
-	
-	private let leftRightPadding: CGFloat = 20
-    private let standardAngleOfRotation: CGFloat = -50
+    
+    private let leftRightPadding: CGFloat = 20
+    private let minimumAngle: CGFloat = -30
+    private let maximumAngle: CGFloat = -80
     private let standardDepth: CGFloat = 200
     private let distanceBetweenItems: CGFloat = 123
     
@@ -52,7 +53,15 @@ class TiltedTabTiltedCollectionViewLayout: TiltedTabCollectionViewLayout {
                     width: itemWidth,
                     height: itemHeight
                 )
-                let rotation = CATransform3DMakeRotation(CGFloat.pi * standardAngleOfRotation / 180, 1, 0, 0)
+                
+                let angle: CGFloat = {
+                    let distanceFromTop = attributes.frame.midY + (-1 * collectionView.bounds.midY)
+                    let distanceRatio = distanceFromTop / itemHeight
+                    let normalisedDistanceRatio = (max(-1, min(1, distanceRatio)) + 1) / 2
+                    return minimumAngle + (normalisedDistanceRatio * (maximumAngle - minimumAngle))
+                }()
+                
+                let rotation = CATransform3DMakeRotation(CGFloat.pi * angle / 180, 1, 0, 0)
                 let downTranslation = CATransform3DMakeTranslation(0, 0, -standardDepth)
                 let upTranslation = CATransform3DMakeTranslation(0, 0, standardDepth)
                 var scale = CATransform3DIdentity
