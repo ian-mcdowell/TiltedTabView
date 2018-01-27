@@ -92,25 +92,38 @@ open class TiltedTabViewController: UICollectionViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.backgroundColor = UIColor(white: 0.2, alpha: 1)
+        guard let collectionView = self.collectionView else {
+            assertionFailure("Collection view not found in UICollectionViewController")
+            return
+        }
+        collectionView.backgroundColor = UIColor(white: 0.2, alpha: 1)
         
-        collectionView?.alwaysBounceVertical = true
-        collectionView?.dataSource = self
-        collectionView?.delegate = self
-        collectionView?.register(TiltedTabViewCell.self, forCellWithReuseIdentifier: "Tab")
+        collectionView.alwaysBounceVertical = true
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(TiltedTabViewCell.self, forCellWithReuseIdentifier: "Tab")
+        
+        (collectionView.collectionViewLayout as? TiltedTabTiltedCollectionViewLayout)?.applyMotionEffects(toCollectionView: collectionView)
     }
     
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
+        let layout: TiltedTabCollectionViewLayout
         switch self.traitCollection.horizontalSizeClass {
         case .compact:
-            self.collectionView?.collectionViewLayout = TiltedTabTiltedCollectionViewLayout()
+            let tiltedLayout = TiltedTabTiltedCollectionViewLayout()
+            tiltedLayout.applyMotionEffects(toCollectionView: self.collectionView!)
+            layout = tiltedLayout
         case .regular:
-            self.collectionView?.collectionViewLayout = TiltedTabGridCollectionViewLayout()
+            layout = TiltedTabGridCollectionViewLayout()
         default:
-            break
+            return
         }
+        
+        layout.delegate = self
+        layout.dataSource = self
+        self.collectionView?.collectionViewLayout = layout
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
