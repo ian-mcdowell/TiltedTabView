@@ -41,7 +41,7 @@ class TiltedTabTiltedCollectionViewLayout: TiltedTabCollectionViewLayout {
             if itemCount == 0 { continue }
             
             // Distance between items is smaller the more items there are.
-            let itemDistance = max(distanceBetweenItems, collectionView.bounds.height / CGFloat(itemCount))
+            let itemDistance = max(distanceBetweenItems, (collectionView.bounds.height / CGFloat(itemCount)) * 0.8)
             
             for item in 0..<itemCount {
                 let indexPath = IndexPath(item: item, section: section)
