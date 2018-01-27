@@ -1,18 +1,15 @@
 import TiltedTabView
 
-class ViewController: UIViewController {
-    
-    let tiltedTabViewController: TiltedTabViewController
+class ViewController: TiltedTabViewController {
     
     var tabs: [String]
     
-    init() {
-        self.tiltedTabViewController = TiltedTabViewController()
+    override init() {
         self.tabs = ["Tilted", "Tab", "View"]
-        super.init(nibName: nil, bundle: nil)
+        super.init()
         
-        tiltedTabViewController.delegate = self
-        tiltedTabViewController.dataSource = self
+        self.delegate = self
+        self.dataSource = self
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -20,23 +17,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add tilted tab view controller to self
-        addChildViewController(tiltedTabViewController)
-        self.view.addSubview(tiltedTabViewController.view)
-        tiltedTabViewController.didMove(toParentViewController: self)
-        
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.isToolbarHidden = false
         self.navigationController?.toolbar.barStyle = .blackTranslucent
         self.toolbarItems = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTab)),
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTab)),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         ]
     }
     
-    @objc private func addTab() {
-        self.tiltedTabViewController.addTab(atIndex: tabs.count)
+    @objc private func addNewTab() {
+        self.addTab(atIndex: tabs.count)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -74,7 +66,8 @@ extension ViewController: TiltedTabViewControllerDataSource {
     }
     
     func tabMoved(fromIndex: Int, toIndex: Int) {
-        print("Tab moved: \(fromIndex) \(toIndex)")
+        let tab = tabs.remove(at: fromIndex)
+        tabs.insert(tab, at: toIndex)
     }
     
 }

@@ -24,9 +24,7 @@ A Swift static library of this project is also available for the ibuild build sy
 ## Usage
 The main class in this library is the `TiltedTabViewController`. It is a subclass of `UICollectionViewController`, that contains a custom collection view and layout.
 
-To get started, you can either:
-- Subclass `TiltedTabViewController`, and add your data providing implementations there.
-- Instantiate a `TiltedTabViewController`, and add it as a child to your view controller.
+To get started, create a view controller that subclasses `TiltedTabViewController`
 
 The `TiltedTabViewController` has data source and delegate properties, similar to those of a UICollectionView.
 
