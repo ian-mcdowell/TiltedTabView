@@ -25,11 +25,11 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-This library aims to replicate the tab switcher in Safari on iOS. It handles both compact width (tilted) and regular width (grid) layouts.
+TiltedTabView 1.0.0 - This library aims to replicate the tab switcher in Safari on iOS. It handles both compact width (tilted) and regular width (grid) layouts.
                    DESC
 
   s.homepage     = "https://github.com/IMcD23/TiltedTabView"
-  s.screenshots  = "https://github.com/IMcD23/TiltedTabView/raw/master/Resources/Screenshot.png","https://github.com/IMcD23/TiltedTabView/raw/master/Resources/Screenshot_iPad.png",
+  s.screenshots  = "https://github.com/IMcD23/TiltedTabView/raw/master/Resources/Screenshot.png","https://github.com/IMcD23/TiltedTabView/raw/master/Resources/Screenshot_iPad.png"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -79,7 +79,7 @@ This library aims to replicate the tab switcher in Safari on iOS. It handles bot
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/IMcD23/InputAssistant.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/IMcD23/TiltedTabView.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

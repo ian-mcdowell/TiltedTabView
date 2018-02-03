@@ -1,10 +1,10 @@
 # Tilted Tab View
 
 <p align="center">
-  <a href="https://github.com/IMcD23/Git">Git</a> &bull;
-  <a href="https://github.com/IMcD23/InputAssistant">InputAssistant</a> &bull;
+  <b>TiltedTabView</b> &bull;
   <a href="https://github.com/IMcD23/TabView">TabView</a> &bull;
-  <b>TiltedTabView</b>
+  <a href="https://github.com/IMcD23/InputAssistant">InputAssistant</a> &bull;
+  <a href="https://github.com/IMcD23/Git">Git</a>
 </p>
 
 --------
@@ -21,6 +21,7 @@ This library aims to replicate the tab switcher in Safari on iOS. It handles bot
 # Requirements
 
 * Xcode 9 or later
+* iOS 10.0 or later
 
 # Usage
 
