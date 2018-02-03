@@ -1,38 +1,64 @@
 # Tilted Tab View
 
+<p align="center">
+  <a href="https://github.com/IMcD23/Git">Git</a> &bull;
+  <a href="https://github.com/IMcD23/InputAssistant">InputAssistant</a> &bull;
+  <a href="https://github.com/IMcD23/TabView">TabView</a> &bull;
+  <b>TiltedTabView</b>
+</p>
+
+--------
+
 This library aims to replicate the tab switcher in Safari on iOS. It handles both compact width (tilted) and regular width (grid) layouts.
 
-<img src="Resources/Screenshot.png" height="300"> <img src="Resources/Screenshot_iPad.png" height="300">
+[![Build Status](http://img.shields.io/travis/IMcD23/TiltedTabView.svg)](https://travis-ci.org/IMcD23/TiltedTabView)
+[![Version](https://img.shields.io/github/release/IMcD23/TiltedTabView.svg)](https://github.com/IMcD23/TiltedTabView/releases/latest)
+![Package Managers](https://img.shields.io/badge/supports-Carthage-orange.svg)
+[![Contact](https://img.shields.io/badge/contact-%40ian__mcdowell-3a8fc1.svg)](https://twitter.com/ian_mcdowell)
 
-## Installation
+<img src="Resources/Screenshot.png" height="300">
+<img src="Resources/Screenshot_iPad.png" height="300">
 
-### Carthage
-This library is available via [Carthage](https://github.com/Carthage/Carthage). To install, add the following to your Cartfile:
-```
-github IMcD23/TiltedTabView
-```
-### Submodule
-You can also add this project as a git submodule.
-```
-git submodule add https://github.com/IMcD23/TiltedTabView path/to/TiltedTabView
-```
-Run the command above, then drag the `TiltedTabView.xcodeproj` into your Xcode project and add it as a build dependency.
+# Requirements
 
-### ibuild
-A Swift static library of this project is also available for the ibuild build system. Learn more about ibuild [here](https://github.com/IMcD23/ibuild)
+* Xcode 9 or later
 
-## Usage
-The main class in this library is the `TiltedTabViewController`. It is a subclass of `UICollectionViewController`, that contains a custom collection view and layout.
+# Usage
 
-To get started, you can either:
-- Subclass `TiltedTabViewController`, and add your data providing implementations there.
-- Instantiate a `TiltedTabViewController`, and add it as a child to your view controller.
+The main class in this library is the TiltedTabViewController. It is a subclass of UICollectionViewController, that contains a custom collection view and layout.
 
-The `TiltedTabViewController` has data source and delegate properties, similar to those of a UICollectionView.
+To get started, create a view controller that subclasses TiltedTabViewController
 
-Set an object that conforms to the `TiltedTabViewControllerDataSource` and `TiltedTabViewControllerDelegate` protocols as the `dataSource` and `delegate` properties, respectively.
+The TiltedTabViewController has data source and delegate properties, similar to those of a UICollectionView.
+
+Set an object that conforms to the TiltedTabViewControllerDataSource and TiltedTabViewControllerDelegate protocols as the dataSource and delegate properties, respectively.
 
 Provide implementations for all required methods of each protocol, and you're off to the races.
 
-## Example
-Take a look at the [Sample App](Sample) for an example of the implementation.
+# Installation
+
+## Carthage
+To install TiltedTabView using [Carthage](https://github.com/Carthage/Carthage), add the following line to your Cartfile:
+
+```
+github "IMcD23/TiltedTabView" "master"
+```
+
+## Submodule
+To install TiltedTabView as a submodule into your git repository, run the following command:
+
+```
+git submodule add -b master https://github.com/IMcD23/TiltedTabView.git Path/To/TiltedTabView
+git submodule update --init --recursive
+```
+
+Then, add the `.xcodeproj` in the root of the repository into your Xcode project, and add it as a build dependency.
+
+## ibuild
+A Swift static library of this project is also available for the ibuild build system. Learn more about ibuild [here](https://github.com/IMcD23/ibuild)
+
+# Author
+Created by [Ian McDowell](https://ianmcdowell.net)
+
+# License
+All code in this project is available under the license specified in the LICENSE file. However, since this project also bundles code from other projects, you are subject to those projects' licenses as well.
