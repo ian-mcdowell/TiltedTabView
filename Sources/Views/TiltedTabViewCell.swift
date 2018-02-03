@@ -13,6 +13,8 @@ protocol TiltedTabViewCellDelegate: class {
 
 class TiltedTabViewCell: UICollectionViewCell {
     
+    private var cornerRadius: CGFloat = 8
+    
     weak var delegate: TiltedTabViewCellDelegate?
     
     var title: String? {
@@ -39,11 +41,11 @@ class TiltedTabViewCell: UICollectionViewCell {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
 
-        self.contentView.layer.cornerRadius = 5
+        self.contentView.layer.cornerRadius = cornerRadius
         self.contentView.layer.masksToBounds = true
         self.backgroundView = UIView()
         self.backgroundView?.backgroundColor = .white
-        self.backgroundView?.layer.cornerRadius = 5
+        self.backgroundView?.layer.cornerRadius = cornerRadius
         self.backgroundView?.layer.masksToBounds = true
         
         let contentView = self.contentView
