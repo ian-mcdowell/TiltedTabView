@@ -90,7 +90,7 @@ TiltedTabView 1.0.0 - This library aims to replicate the tab switcher in Safari 
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Sources/*.swift"
+  s.source_files  = "Sources/**/*.swift"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
