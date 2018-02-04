@@ -13,7 +13,7 @@ public protocol TiltedTabViewControllerDataSource: class {
     /// How many tabs are present in the tab view
     func numberOfTabsInTiltedTabViewController() -> Int
     
-    /// Provide an image to display in the tab. Use UIGraphicsImageRenderer to render a view's heirarchy to retrieve a snapshot before presenting the tab view, cache it, and return it here.
+    /// Provide an image to display in the tab. Use UIGraphicsImageRenderer to render a view's hierarchy to retrieve a snapshot before presenting the tab view, cache it, and return it here.
     func snapshotForTab(atIndex index: Int) -> UIImage?
     
     /// The title to be displayed on the tab
